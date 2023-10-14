@@ -12,12 +12,24 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+        <!-- Include viz.js library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>Slide a</section>
 				<section>Slide b</section>
+                <section>
+                    Slide with Graphviz:
+                    <script type="plain/text" class="graphviz">
+                        digraph G {
+                            A -> B;
+                            B -> C;
+                        }
+                    </script>
+                </section>
 			</div>
 		</div>
 
@@ -26,13 +38,27 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+            function renderGraphviz() {
+                var graphs = document.querySelectorAll('.graphviz');
+                graphs.forEach(function(graph) {
+                    var viz = new Viz();
+                    viz.renderSVGElement(graph.textContent)
+                        .then(function(element) {
+                            graph.parentNode.replaceChild(element, graph);
+                        })
+                        .catch(function(error) {
+                            console.error(error);
+                        });
+                });
+            }
+
+            Reveal.addEventListener('ready', function(event) {
+                renderGraphviz();
+            });
+
 			Reveal.initialize({
 				hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
