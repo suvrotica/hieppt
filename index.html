@@ -16,7 +16,19 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>Slide a</section>
-				<section>Slide b</section>
+				<section>
+					Slide b
+					<pre>
+<code class="language-plantuml">
+  @startuml
+  Alice -> Bob: Authentication Request
+  Bob --> Alice: Authentication Response
+  Alice -> Bob: Another authentication Request
+  Bob --> Alice: Another authentication Response
+  @enduml
+</code>
+</pre>
+				</section>
 			</div>
 		</div>
 
@@ -28,9 +40,12 @@
       // More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
+			
 			Reveal.initialize({
 				hash: true,
 
+  dependencies: [
+    { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' }, ]
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
