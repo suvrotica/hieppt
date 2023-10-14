@@ -13,53 +13,47 @@
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 
-        <!-- Include viz.js library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+		<!-- PlantUML styles and scripts -->
+		<link rel="stylesheet" href="https://reveal-plantuml.github.io/css/plantuml.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>Slide a</section>
-				<section>Slide b</section>
-                <section>
-                    Slide with Graphviz:
-                    <script type="text/plain" class="graphviz">
-                        digraph G {
-                            A -> B;
-                            B -> C;
+				<section>
+                    Slide with PlantUML:
+                    <div class="plantuml">
+                        @startuml
+                        class Example {
+                            + attribute : String
+                            + method() : void
                         }
-                    </script>
+                        @enduml
+                    </div>
                 </section>
+				<section>Slide b</section>
 			</div>
 		</div>
 
+		<!-- Reveal.js scripts -->
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		
+		<!-- PlantUML scripts -->
+		<script src="https://reveal-plantuml.github.io/js/reveal.js"></script>
+		<script src="https://reveal-plantuml.github.io/js/PlantUML.js"></script>
+		<script src="https://reveal-plantuml.github.io/js/rawdeflate.js"></script>
+
+		<!-- Reveal.js initialization -->
 		<script>
-            function renderGraphviz() {
-                var graphs = document.querySelectorAll('.graphviz');
-                graphs.forEach(function(graph) {
-                    var viz = new Viz();
-                    viz.renderSVGElement(graph.textContent)
-                        .then(function(element) {
-                            graph.parentNode.replaceChild(element, graph);
-                        })
-                        .catch(function(error) {
-                            console.error(error);
-                        });
-                });
-            }
-
-            Reveal.addEventListener('ready', function(event) {
-                renderGraphviz();
-            });
-
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, PlantUML ]
 			});
 		</script>
 	</body>
