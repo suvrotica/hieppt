@@ -22,14 +22,16 @@
 				<section>Slide a</section>
 				<section>
                     Slide with PlantUML:
-                    <div class="plantuml">
-                        @startuml
-                        class Example {
-                            + attribute : String
-                            + method() : void
-                        }
-                        @enduml
-                    </div>
+                    <h2>Diagram in HTML</h2>
+        <pre>
+          <code class="language-plantuml">
+            @startuml
+            User -> (Start)
+            User --> (Use the application) : A small label
+            :Main Admin: ---> (Use the application) : This is\nAnother\nlabel
+            @enduml
+          </code>
+	</pre>
                 </section>
 				<section>Slide b</section>
 			</div>
