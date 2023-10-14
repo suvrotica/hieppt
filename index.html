@@ -1,62 +1,34 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>reveal-plantuml</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reset.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/white.min.css">
+  <link rel="stylesheet" href="https://reveal-plantuml.github.io/css/plantuml.css">
+  <link rel="shortcut icon" href="favicon.png" />
 
-		<title>reveal.js</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
-
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-
-		<!-- PlantUML styles and scripts -->
-		<link rel="stylesheet" href="https://reveal-plantuml.github.io/css/plantuml.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide a</section>
-				<section>
-                    Slide with PlantUML:
-                    <h2>Diagram in HTML</h2>
-        <pre>
-          <code class="language-plantuml">
-            @startuml
-            User -> (Start)
-            User --> (Use the application) : A small label
-            :Main Admin: ---> (Use the application) : This is\nAnother\nlabel
-            @enduml
-          </code>
-	</pre>
-                </section>
-				<section>Slide b</section>
-			</div>
-		</div>
-
-		<!-- Reveal.js scripts -->
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		
-		<!-- PlantUML scripts -->
-		<script src="https://reveal-plantuml.github.io/js/reveal.js"></script>
-		<script src="https://reveal-plantuml.github.io/js/PlantUML.js"></script>
-		<script src="https://reveal-plantuml.github.io/js/rawdeflate.js"></script>
-
-		<!-- Reveal.js initialization -->
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, PlantUML ]
-			});
-		</script>
-	</body>
+  <script src="https://reveal-plantuml.github.io/js/reveal.js"></script>
+  <script src="https://reveal-plantuml.github.io/js/PlantUML.js"></script>
+  <script src="https://reveal-plantuml.github.io/js/rawdeflate.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- your slides content goes here -->
+    </div>
+  </div>
+  <script>
+    Reveal.initialize({
+      dependencies: [
+        { src: '//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/marked.js' },
+        { src: '//cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/markdown.js' },
+        { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' },
+      ]
+    });
+  </script>
+  <!-- rest of your code -->
+</body>
 </html>
