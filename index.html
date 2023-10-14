@@ -36,15 +36,20 @@ Alice <-- Bob: Another authentication Response
       // More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
-			
 			Reveal.initialize({
-				hash: true,
-
+  plantuml: {
+      serverPath: 'https://plantuml.example.com/plantuml/svg/'
+  }
   dependencies: [
-    { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' }, ]
-				// Learn about plugins: https://revealjs.com/plugins/
+    { src: '//cdn.jsdelivr.net/npm/reveal-plantuml' },
+  ]
+			hash: true,
+
+  		// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
+			
+});
+			
 		</script>
 	</body>
 </html>
